@@ -5,11 +5,10 @@
 let a = Number(prompt("첫번째 수 입력 : ", ""));
 let b = Number(prompt("두번째 수 입력 : ", ""));
 let c = Number(prompt("세번째 수 입력 : ", ""));
-let max;
-let min;
+let max, min;
 
 max = Math.max(a, b, c);
 min = Math.min(a, b, c);
 
-document.write("<h3>제일 큰 값 : " + max + "</h3>");
-document.write("<h3>제일 작은 값 : " + min + "</h3>");
+document.write("<p>제일 큰 값 : " + max + "</p>");
+document.write("<p>제일 작은 값 : " + min + "</p>");

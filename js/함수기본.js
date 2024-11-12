@@ -137,14 +137,15 @@ const buyToy = (item, price, quantity, callback) => {
       quantity +
       "개 골라서 엄마에게 가져갔습니다."
   );
-  setTimeout(function () {
-    console.log("계산이 필요합니다.");
+  setTimeout(() => {
+    console.log("💰계산이 필요합니다.");
     var total = price * quantity;
     callback(total);
   }, 2000);
 };
 function pay(total) {
-  console.log(total + "원 입니다.");
+  console.log("엄마: '지불할 금액은 " + total + "원입니다.'");
+  console.log("🧒 아이: '와! 고마워요, 엄마!' 🎉");
 }
 
 buyToy("공룡 장난감", 3000, 3, pay);

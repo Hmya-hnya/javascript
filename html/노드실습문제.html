@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드실습문제</title>
+    <style>
+      ul {
+        color: blue;
+        font-weight: bold;
+        font-size: 1.3em;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const menuList = document.createElement("ul");
+      const menuItem1 = document.createElement("li");
+      const menuItem2 = document.createElement("li");
+      const menuItem3 = document.createElement("li");
+      const menuItem4 = document.createElement("li");
+      const menuItem5 = document.createElement("li");
+
+      document.body.appendChild(menuList);
+      document.body.appendChild(menuItem1);
+      document.body.appendChild(menuItem2);
+      document.body.appendChild(menuItem3);
+      document.body.appendChild(menuItem4);
+      document.body.appendChild(menuItem5);
+
+      menuList.innerText = "menuList";
+      menuItem1.innerText = "menu1";
+      menuItem2.innerText = "menu2";
+      menuItem3.innerText = "menu3";
+      menuItem4.innerText = "menu4";
+      menuItem5.innerText = "menu5";
+    </script>
+  </body>
+</html>

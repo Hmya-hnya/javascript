@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노드추가삭제</title>
+  </head>
+  <body>
+    <div id="parent">
+      부모 입니다.
+      <div id="child">자식 입니다.</div>
+    </div>
+    <button onclick="removeC()">자식 제거하기</button>
+    <script>
+      function removeC() {
+        const parent = document.getElementById("parent");
+        const child = document.getElementById("child");
+        parent.removeChild(child);
+        child.remove();
+      }
+    </script>
+  </body>
+</html>

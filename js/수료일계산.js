@@ -7,4 +7,8 @@ let remainTime = toDay - toNow;
 
 remainDay = Math.round(remainTime / (1000 * 60 * 60 * 24)); // 밀리 초를 일 수로 계산하고 반올림
 
-document.querySelector("#result").innerText = remainDay;
+if (remainDay !== 0) {
+  document.querySelector("#result").innerText = remainDay;
+} else if (remainDay == 0) {
+  document.querySelector("#result").innerText = "day";
+}

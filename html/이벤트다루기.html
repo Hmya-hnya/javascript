@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트다루기</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="input_box"
+      onfocus="focusEvent()"
+      onblur="blurEvent()"
+    />
+    <button class="btn1">클릭1</button>
+    <button class="btn2">클릭2</button>
+    <button onclick="btnClick3()">클릭3</button>
+    <script>
+      const inputBox = document.querySelector("#input_box");
+      function focusEvent() {
+        inputBox.style.background = "orange";
+      }
+      function blurEvent() {
+        inputBox.style.background = "green";
+      }
+
+      // 프로퍼티 리스너 방식으로 이벤트 등록하기
+      const btnEl = document.querySelector(".btn1");
+      btnEl.onclick = () => {
+        alert("버튼1이 눌러졌습니다.");
+      };
+
+      // 이벤트 등록 메서드로 이벤트 등록하기
+      const btnEl2 = document.querySelector(".btn2");
+      btnEl2.addEventListener("click", () => {
+        alert("버튼2가 눌러졌습니다.");
+      });
+
+      // 함수를 직접 넣기
+      function btnClick3() {
+        alert("버튼3이 눌러졌습니다.");
+      }
+    </script>
+  </body>
+</html>

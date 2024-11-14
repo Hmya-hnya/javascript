@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼설명</title>
+    <style>
+      #item {
+        position: relative;
+        width: 500px;
+        height: auto;
+        padding: 15px 20px;
+        margin: auto;
+      }
+      button {
+        background-color: rgba(231, 231, 231, 0.7);
+        padding: 5px;
+        border: 1px solid #ccc;
+        font-size: 0.8em;
+      }
+      .over {
+        position: absolute;
+        left: 30px;
+        bottom: 30px;
+      }
+      .detail {
+        width: 400px;
+        text-align: left;
+        line-height: 1.8;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="item">
+      <img src="/images/잇지.jpeg" width="400px" alt="이미지" />
+      <button class="over" id="open" onclick="showDetail()">
+        상세 설명 보기
+      </button>
+      <div id="desc" class="detail">
+        <h4>그룹 잇지</h4>
+        <p>
+          설명설명설명설명설명설명 설명설명설명설명설명설명
+          설명설명설명설명설명설명 설명설명설명설명설명설명
+          설명설명설명설명설명설명
+        </p>
+        <button id="close" onclick="hideDetail()">상세 설명 닫기</button>
+      </div>
+    </div>
+    <script>
+      function showDetail() {
+        document.querySelector("#desc").style.display = "block";
+        document.querySelector("#open").style.display = "none";
+      }
+
+      function hideDetail() {
+        document.querySelector("#desc").style.display = "none";
+        document.querySelector("#open").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

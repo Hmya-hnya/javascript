@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼배경색</title>
+    <style>
+      #container {
+        display: flex;
+        justify-content: center;
+      }
+      #result {
+        width: 500px;
+        height: 300px;
+        border: 1px solid rgb(218, 218, 218);
+        border-radius: 10px;
+        margin: auto;
+      }
+      button {
+        width: 150px;
+        height: 40px;
+        margin: 5px;
+        border-radius: 5px;
+        color: white;
+        border-color: white;
+      }
+      .green {
+        background-color: green;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .purple {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <button class="green" onclick="change('green')">Green</button>
+      <button class="orange" onclick="change('orange')">Orange</button>
+      <button class="purple" onclick="change('purple')">Purple</button>
+    </div>
+    <div id="result"></div>
+    <script>
+      function change(color) {
+        const result = document.querySelector("#result");
+        result.style.backgroundColor = color;
+      }
+    </script>
+  </body>
+</html>

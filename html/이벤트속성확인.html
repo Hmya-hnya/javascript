@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트속성확인</title>
+  </head>
+  <body>
+    <a href="https://www.naver.com">네이버 이동</a>
+    <a href="https://www.google">구글 이동</a>
+    <script>
+      const aEls = document.querySelectorAll("a");
+      aEls.forEach((el) => {
+        el.addEventListener("click", (event) => {
+          // 기본 이벤트 취소
+          event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>

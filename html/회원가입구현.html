@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      .container {
+        height: 450px;
+        width: 400px;
+        border: 2px solid rgb(182, 182, 182);
+        border-radius: 10px;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .input_box {
+        position: relative; /* p 태그 위치 조정을 위해 relative 설정 */
+        width: 250px; /* input 필드 너비에 맞춤 */
+        margin-bottom: 20px;
+      }
+      .input_box input {
+        width: 250px; /* 너비 증가 */
+        padding: 12px;
+        margin: 5px auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .input_box input:focus {
+        border-color: rgb(57, 143, 255);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      button {
+        background-color: rgb(69, 160, 81);
+        border-radius: 5px;
+        height: 35px;
+        width: 150px;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .input_box p {
+        position: absolute;
+        right: -20px;
+        bottom: -15px;
+        font-size: 10px;
+        margin: 0;
+        padding: 0;
+      }
+      .valid {
+        color: green;
+      }
+      .invalid {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="signupForm" action="/submit" method="post">
+        <h2>회원가입</h2>
+        <div class="input_box">
+          <input
+            type="text"
+            id="inputID"
+            name="id"
+            placeholder="아이디를 입력하세요."
+            required
+          />
+          <p id="idcheck"></p>
+        </div>
+        <div class="input_box">
+          <input
+            type="password"
+            id="inputPW"
+            name="pw"
+            placeholder="비밀번호를 입력하세요."
+            required
+          />
+          <p id="pwcheck"></p>
+        </div>
+        <div class="input_box">
+          <input
+            type="email"
+            id="inputEmail"
+            name="email"
+            placeholder="이메일을 입력하세요. (id@domain.com)"
+            required
+          />
+          <p id="emailcheck"></p>
+        </div>
+        <div class="input_box">
+          <input
+            type="tel"
+            id="inputPhone"
+            name="phone"
+            placeholder="전화번호를 입력하세요. (010-0000-0000)"
+            required
+          />
+          <p id="phonecheck"></p>
+        </div>
+        <button type="submit" class="reg_req_btn" disabled>가입 요청</button>
+      </form>
+    </div>
+    <script>
+      const regexID = /^\w{8,20}$/;
+      const regexPW =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const regexEmail = /^([a-z]+\d*)+(\.?\w+)+@\w+(\.\w{2,3})+$/;
+      const regexPhone = /^\d{2,3}-\d{3,4}-\d{4}$/;
+
+      const IDinput = document.getElementById("inputID");
+      const PWinput = document.getElementById("inputPW");
+      const Emailinput = document.getElementById("inputEmail");
+      const Phoneinput = document.getElementById("inputPhone");
+      const submitButton = document.querySelector(".reg_req_btn");
+
+      const idCheck = document.querySelector("#idcheck");
+      const pwCheck = document.querySelector("#pwcheck");
+      const emailCheck = document.querySelector("#emailcheck");
+      const phoneCheck = document.querySelector("#phonecheck");
+
+      function validateInput(input, regex, feedbackElement) {
+        if (regex.test(input.value)) {
+          feedbackElement.textContent = "사용 가능 합니다.";
+          feedbackElement.classList.add("valid");
+          feedbackElement.classList.remove("invalid");
+          return true;
+        } else {
+          feedbackElement.textContent = "입력 조건에 맞지 않습니다.";
+          feedbackElement.classList.remove("valid");
+          feedbackElement.classList.add("invalid");
+          return false;
+        }
+      }
+      function updateSubmitButton() {
+        const isIdValid = validateInput(IDinput, regexID, idCheck);
+        const isPwValid = validateInput(PWinput, regexPW, pwCheck);
+        const isMailValid = validateInput(Emailinput, regexEmail, emailCheck);
+        const isPhoneValid = validateInput(Phoneinput, regexPhone, phoneCheck);
+
+        if (isIdValid && isPwValid && isMailValid && isPhoneValid) {
+          submitButton.disabled = false;
+          submitButton.classList.add("enabled");
+        } else {
+          submitButton.disabled = true;
+          submitButton.classList.remove("enabled");
+        }
+      }
+
+      IDinput.addEventListener("input", () => updateSubmitButton());
+      PWinput.addEventListener("input", () => updateSubmitButton());
+      Emailinput.addEventListener("input", () => updateSubmitButton());
+      Phoneinput.addEventListener("input", () => updateSubmitButton());
+    </script>
+  </body>
+</html>
